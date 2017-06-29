@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Random interval</title>
+    <script type="text/javascript">
+
+      var intervals = [
+        "2m",
+        "2",
+        "3m",
+        "3",
+        "4",
+        "tritone",
+        "5",
+        "6m",
+        "6",
+        "7m",
+        "7",
+        "8"
+      ];
+
+      function next() {
+        var number = Math.floor(Math.random() * 12),
+            nextInterval = intervals[number],
+            lastInterval = document.getElementById('interval').innerHTML;
+
+        if (nextInterval === lastInterval) {
+
+          next();
+
+          return;
+        }
+
+        document.getElementById('interval').innerHTML = nextInterval;
+      }
+
+    </script>
+
+    <style media="screen">
+      body {
+        text-align: center;
+      }
+
+      #interval {
+        font-size: 560px;
+      }
+
+      button {
+        font-size: 120px;
+        margin-top: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="interval">
+
+    </div>
+    <button id="next" onclick="next()">Next</button>
+
+    <script type="text/javascript">
+      next();
+
+      document.getElementById('next').focus();
+    </script>
+
+  </body>
+</html>
