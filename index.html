@@ -18,19 +18,17 @@
         "7m",
         "7",
         "8"
-      ];
+      ],
+      currentIntervals = [];
 
       function next() {
-        var number = Math.floor(Math.random() * 12),
-            nextInterval = intervals[number],
-            lastInterval = document.getElementById('interval').innerHTML;
 
-        if (nextInterval === lastInterval) {
-
-          next();
-
-          return;
+        if (! currentIntervals.length) {
+          currentIntervals = intervals.slice(0);
         }
+
+        var index = Math.floor(Math.random() * currentIntervals.length),
+            nextInterval = currentIntervals.splice(index, 1)[0];
 
         document.getElementById('interval').innerHTML = nextInterval;
       }
